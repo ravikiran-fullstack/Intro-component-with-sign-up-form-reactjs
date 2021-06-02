@@ -1,13 +1,111 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --red: hsl(0, 100%, 74%);
+  --green: hsl(154, 59%, 51%);
+  --blue: hsl(248, 32%, 49%);
+  --dark-blue: hsl(249, 10%, 26%);
+  --grayish-blue: hsl(246, 25%, 77%);
+}
+
+body {
+  font-size: 100%;
+  font-family: "Poppins", sans-serif;
+  color: white;
+  min-height: 100vh;
+  background-color: var(--red);
+  background-image: url("./assets/bg-intro-desktop.png");
+}
+
+.app {
+  padding: 5px 20px;
+}
+
+.app fieldset {
+  margin: 20px 0;
+}
+
+.highlighted {
+  color: white;
+  font-weight: 700;
+}
+
+.signUpSection{
+  padding: 20px;
+  margin-top: 5vh;
+}
+
+.pageIntro{
+  padding: 15% 5% 0 10%;
+  margin-top: 5vh;
+}
+
+.pageIntro h1{
+  font-weight: 700;
+}
+
+.pageIntro p{
+  font-size: 400;
+  margin-top: 10px;
+  font-size: 0.8rem;
+}
+
+.signUpForm {
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0px 5px 0px 1px rgba(80, 80, 80, 0.233);
+}
+
+.freeTrial {
+  padding-top: 13px;
+  margin: 20px 0;
+  min-height: 50px;
+  background-color: var(--blue);
+  color: var(--grayish-blue);
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0px 5px 0px 1px rgba(80, 80, 80, 0.233);
+}
+
+.form-group {
+  margin: 15px 0;
+}
+
+.form-control{
+  padding: .375rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  height: calc(2.5em + .75rem + 2px);
+}
+
+.submitButton {
+  width: 100%;
+  background-color: var(--green);
+  border: none;
+}
+
+.termAndConditions{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 0.5rem;
+  color: var(--grayish-blue);
+}
+
+.alert{
+  margin-left: -20px;
+  color: var(--red);
+  font-weight: 700;
+}
+
+@media (max-width: 1080px) {
+  body {
+    background-image: url("./assets/bg-intro-mobile.png");
+  }
 }
