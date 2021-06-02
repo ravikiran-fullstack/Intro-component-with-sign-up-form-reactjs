@@ -108,4 +108,15 @@ body {
   body {
     background-image: url("./assets/bg-intro-mobile.png");
   }
+
+  .signUpSection{
+    padding: 0 20px !important;
+    margin-top: 0  !important;
+  }
+  
+  .pageIntro{
+    padding: 0 10% 0 10% !important;
+    margin-top: 0 !important;
+    text-align: center;
+  }
 }
