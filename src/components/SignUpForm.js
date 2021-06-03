@@ -1,4 +1,5 @@
-import React,{useState} from "react";
+import React,{useState, useEffect} from "react";
+import isEmail from 'validator/lib/isEmail';
 
 const SignUpForm = () => {
     const [firstName, setFirstName] = useState("");
@@ -10,6 +11,14 @@ const SignUpForm = () => {
     const [password, setPassword] = useState("");
     const [passwordEmpty, setPasswordEmpty] = useState(false);
     
+
+    useEffect(() => {
+      setEmailEmpty(false);
+      if (!isEmail(email) && email) {
+        setEmailEmpty(true);
+      }
+    }, [email]);
+
     const updateFirstName = e => {
         setFirstName(e.target.value)
         setFirstNameEmpty(false);
@@ -22,7 +31,7 @@ const SignUpForm = () => {
 
     const updateEmail = e => {
         setEmail(e.target.value)
-        setEmailEmpty(false);
+        setEmailEmpty(false);     
     }
 
     const updatePassword = e => {
@@ -30,63 +39,68 @@ const SignUpForm = () => {
         setPasswordEmpty(false);
     }
 
-    const handleSubmit = e => {
-        e.preventDefault();
-        if(!firstName){
-            setFirstNameEmpty(true);
-        }
-        if(!lastName){
-            setLastNameEmpty(true);
-        }
-        if(!email){
-            setEmailEmpty(true);
-        }
-        if(!password){
-            setPasswordEmpty(true);
-        }
-    }
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      if (!firstName) {
+        setFirstNameEmpty(true);
+      }
+      if (!lastName) {
+        setLastNameEmpty(true);
+      }
+      if (!email) {
+        setEmailEmpty(true);
+      }
+      if (!password) {
+        setPasswordEmpty(true);
+      }
+    };
+
     return (
       <div className="col-12 signUpForm">
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <input
               type="text"
-              className="form-control"
+              className={`form-control  ${firstNameEmpty && "alertInput"}`}
               placeholder="First Name"
               value={firstName}
               onChange={updateFirstName}
+              autoComplete="off"
             />
-            {firstNameEmpty && <small class="form-text text-muted">First Name cannot be empty</small>}
+            {firstNameEmpty && <small className="form-text text-muted text-right textRed">First Name cannot be empty</small>}
           </div>
           <div className="form-group">
             <input
               type="text"
-              className="form-control"
+              className={`form-control  ${lastNameEmpty && "alertInput"}`}
               placeholder="Last Name"
               value={lastName}
               onChange={updateLastName}
+              autoComplete="off"
             />
-            {lastNameEmpty && <small class="form-text text-muted">First Name cannot be empty</small>}
+            {lastNameEmpty && <small className="form-text text-muted text-right textRed">Last Name cannot be empty</small>}
           </div>
           <div className="form-group">
             <input
               type="email"
-              className="form-control"
+              className={`form-control  ${emailEmpty && "alertInput"}`}
               placeholder="Email Address"
               value={email}
               onChange={updateEmail}
+              autoComplete="off"
             />
-            {emailEmpty && <small class="form-text text-muted">First Name cannot be empty</small>}
+            {emailEmpty && <small className="form-text text-muted text-right textRed">Email cannot be empty and in proper format</small>}
           </div>
           <div className="form-group">
             <input
               type="password"
-              className="form-control"
+              className={`form-control  ${passwordEmpty && "alertInput"}`}
               placeholder="Password"
               value={password}
               onChange={updatePassword}
+              autoComplete="off"
             />
-            {passwordEmpty && <small class="form-text text-muted">First Name cannot be empty</small>}
+            {passwordEmpty && <small className="form-text text-muted text-right textRed">Password cannot be empty</small>}
           </div>
           <button
             type="submit"

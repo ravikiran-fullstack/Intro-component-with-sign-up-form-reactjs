@@ -104,6 +104,15 @@ body {
   font-weight: 700;
 }
 
+.alertInput{
+  border: 1px solid var(--red) !important;
+  color: var(--red) !important;
+}
+
+.textRed{
+  color: var(--red) !important;
+}
+
 @media (max-width: 1080px) {
   body {
     background-image: url("./assets/bg-intro-mobile.png");
